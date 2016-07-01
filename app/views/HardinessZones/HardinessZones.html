@@ -1,0 +1,30 @@
+<div layout="column" >
+  <img src="./assets/imgs/HardinessZoneMap.jpg" alt="Hardiness Zones Map" />
+  <div class="" layout-padding>
+    <div layout="row" layout-align="start start">
+      <!--TODO: Fix layout issues here; use md best practices-->
+      <h1>
+        Choose Hardiness Zone <md-icon md-svg-icon="info" ng-click="$ctrl.hardinessInfo()"></md-icon>
+      </h1>
+    </div>
+    <fieldset class="" >
+      <legend class="">Check each zone from which you would like to plant</legend>
+      <div layout="row" layout-wrap flex>
+        <div flex-xs flex="100">
+          <md-checkbox aria-label="Select All"
+                       ng-checked="$ctrl.isChecked()"
+                       md-indeterminate="$ctrl.isIndeterminate()"
+                       ng-click="$ctrl.toggleAll()">
+            <span ng-if="$ctrl.isChecked()">Un-</span>Select All
+          </md-checkbox>
+        </div>
+        <div class="" flex="20" ng-repeat="zone in $ctrl.zones">
+          <md-checkbox ng-checked="$ctrl.exists(zone, $ctrl.selected)" ng-click="$ctrl.toggle(zone, $ctrl.selected)">
+               {{zone}}
+          </md-checkbox>
+        </div>
+      </div>
+    </fieldset>
+    </h3>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="md-padding" layout="column">
+  <h1>
+    Welcome to A Big Harvest
+  </h1>
+  <h3>How can we help you grow?
+  </h3>
+
+  <div layout="column" layout-gt-xs="row">
+    <md-card flex="50" ng-repeat="location in $ctrl.nav">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{location.headline}}</span>
+          <span class="md-subhead">{{location.subhead}}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media">
+            <img ng-src="./assets/svg/shovel.svg" alt="Shovel" />
+            <!-- TODO: md-icon is ready to go below, just need to resolve sizing issue-->
+            <!--  <md-icon md-svg-icon="shovel"></md-icon> -->
+          </div>
+        </md-card-title-media>
+      </md-card-title>
+      <md-card-content layout-align="start start">
+        <p>
+          {{location.content}}
+        </p>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button ng-href="{{location.url}}" ng-disabled="{{location.disabled}}" class="md-raised md-accent">Let's Go!</md-button>
+        </md-card-actions>
+      </md-card-content>
+
+    </md-card>
+
+  </div>
+</div>
