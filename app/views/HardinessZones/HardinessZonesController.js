@@ -33,8 +33,6 @@ class HardinessZonesController  {
       //pushes to if not
       list.push(item);
     }
-    console.log(list);
-
   }
   //returns true if item in list, else returns false
   exists(item, list) {
