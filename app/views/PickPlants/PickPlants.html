@@ -1,0 +1,30 @@
+<div layout="column" >
+    <h1>Pick Your Plants!</h1>
+    <h2>{{$ctrl.selected}}</h2>
+
+</div>
+<div layout="column" layout-gt-xs="row">
+  <md-card flex="50" flex-gt-sm="33" ng-repeat="plant in $ctrl.plants">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{plant.name | uppercase}}</span>
+      </md-card-title-text>
+      <md-card-title-media class="md-padding">
+        <div class="md-media-lg card-media">
+          <img ng-src="./assets/svg/plants/{{plant.name}}.svg" alt="{{plant.name}} Image" />
+          <!-- TODO: md-icon is ready to go below, just need to resolve sizing issue-->
+          <!--  <md-icon md-svg-icon="shovel"></md-icon> -->
+        </div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-content layout-align="start start">
+      <p>
+        {{plant.content}}
+      </p>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-href="{{location.url}}" ng-disabled="{{location.disabled}}" class="md-raised md-accent">Add {{plant.name}}
+        </md-button>
+      </md-card-actions>
+    </md-card-content>
+  </md-card>
+</div>

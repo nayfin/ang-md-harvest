@@ -1,20 +1,31 @@
 <div class="md-padding" layout="column">
-  <h1>
-    Welcome to A Big Harvest
-  </h1>
-  <h3>How can we help you grow?
-  </h3>
+  <div layout="row">
+    <div flex-gt-xs="60" class="">
+      <h1>
+      Welcome to A Big Harvest
+      </h1>
+      <h2>How can we help you grow?
+      </h3>
+      <p>
+      Starting a garden can seem overwhelming. We'll help you learn the essentials, so you can be prepared. Next you'll pick plants that grow well in your region and build a mockup of how you'd like your garden to look. Finally, you can use some of our recipes to turn your fresh fruits and vegetables into a delicious meal!
+      </p>
+    </div>
+    <div flex-gt-xs="40" hide-xs layout-margin>
+      <img layout-align="center center" ng-src="{{$ctrl.gardenImgUrl}}" alt="Picture of a garden" />
+    </div>
+  </div>
+
 
   <div layout="column" layout-gt-xs="row">
-    <md-card flex="50" ng-repeat="location in $ctrl.nav">
+    <md-card flex="50" flex-gt-sm="33" ng-repeat="location in $ctrl.nav">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{location.headline}}</span>
           <span class="md-subhead">{{location.subhead}}</span>
         </md-card-title-text>
-        <md-card-title-media>
+        <md-card-title-media class="md-padding">
           <div class="md-media-lg card-media">
-            <img ng-src="./assets/svg/shovel.svg" alt="Shovel" />
+            <img ng-src="{{location.imgUrl}}" alt="{{location.alt}}" />
             <!-- TODO: md-icon is ready to go below, just need to resolve sizing issue-->
             <!--  <md-icon md-svg-icon="shovel"></md-icon> -->
           </div>
@@ -25,7 +36,8 @@
           {{location.content}}
         </p>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-href="{{location.url}}" ng-disabled="{{location.disabled}}" class="md-raised md-accent">Let's Go!</md-button>
+          <md-button ng-href="{{location.url}}" ng-disabled="{{location.disabled}}" class="md-raised md-accent">Let's Go!
+          </md-button>
         </md-card-actions>
       </md-card-content>
 

@@ -12,10 +12,11 @@
   <link rel="stylesheet" href="./assets/app.css"/>
 </head>
 
-<body layout="column" ng-cloak>
-  <header subtitle="subtitle"></header>
-  <md-content>
-    <div layout='row' ng-view class="">
+<body layout="column" ng-controller="RootController as root" ng-cloak>
+  <header subtitle="subtitle"></header>{{root.zonesSelected}}
+  <hardiness zonesSelected='root.zonesSelected'></hardiness>
+  <md-content flex layout='column'>
+    <div  ng-view class="">
     </div>
   </md-content>
 <script src="./jspm_packages/system.js" type="text/javascript"></script>

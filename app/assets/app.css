@@ -4,7 +4,6 @@
 
 html, body {
   font-family: 'Roboto', sans-serif;
-  background-color: #feffef;
   font-size: 14px;
   height: 100%;
   margin: 0px;
@@ -15,6 +14,9 @@ img{
   height: 100%;
   //border-radius: 50%;
 }
-.md-content{
+md-content{
   background-color: rgba(254, 255, 239, 1);
+}
+.inner-toolbar{
+  border-radius: 3px;
 }
