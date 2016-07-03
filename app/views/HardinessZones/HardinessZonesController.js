@@ -7,7 +7,6 @@ class HardinessZonesController  {
     this.$log = $log;
     this.$mdDialog = $mdDialog;
     this.zones = [1,2,3,4,5,6,7,8,9,10];
-    this.zonesSelected = zonesSelected;
   }
   //dialog controller; TODO: move to a service, enhance using custom dialog
   hardinessInfo() {
@@ -42,24 +41,24 @@ class HardinessZonesController  {
     return list.indexOf(item) > -1
   }
   //checks to see if some but not all boxes are checked, return boolean
+
   noneSelected(){
-    return(this.zonesSelected.length < 1);
+    return(this.selected.length < 1);
   }
   isIndeterminate() {
-    return (this.zonesSelected.length !== 0 &&
-        this.zonesSelected.length !== this.zones.length);
+    return (this.selected.length !== 0 &&
+        this.selected.length !== this.zones.length);
   }
   isChecked() {
-    return this.zonesSelected.length === this.zones.length;
+    return this.selected.length === this.zones.length;
   }
   toggleAll() {
-    if (this.zonesSelected.length === this.zones.length) {
-      this.zonesSelected = [];
-    } else if (this.zonesSelected.length === 0 || this.zonesSelected.length > 0) {
-      this.zonesSelected = this.zones.slice(0);
+    if (this.selected.length === this.zones.length) {
+      this.selected = [];
+    } else if (this.selected.length === 0 || this.selected.length > 0) {
+      this.selected = this.zones.slice(0);
     }
   };
-
 }
 
 export default HardinessZonesController;

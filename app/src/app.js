@@ -28,10 +28,10 @@ export default angular.module( 'big-harvest', [ 'ngMaterial' , 'ngRoute', Root.n
           template: `<home></home>`
         })
         .when('/hardiness',{
-          template: `<h3>Hello</h3>`// `<hardiness zonesSelected='root.zonesSelected'></hardiness>`
+          template: `<hardiness selected='root.zonesSelected'></hardiness>`
         })
         .when('/pickPlants',{
-          template: `<pickplants></pickplants>`,
+          template: `<pickplants zones='root.zonesSelected'></pickplants>`,
         })
         .otherwise('/');
 

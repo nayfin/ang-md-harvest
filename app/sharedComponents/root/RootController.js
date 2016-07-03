@@ -1,5 +1,5 @@
 function RootController($mdSidenav, $mdBottomSheet, $log ) {
-  var self = this;
+  let self = this;
 
   self.zonesSelected = [];
   self.page = "Home";

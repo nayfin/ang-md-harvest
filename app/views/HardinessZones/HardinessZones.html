@@ -1,8 +1,9 @@
 <div layout="column" ng-cloak>
+  zonesSelected = {{$ctrl.selected}}
   <img src="./assets/imgs/HardinessZoneMap.jpg" alt="Hardiness Zones Map" />
+
   <section class="" layout-padding>
     <md-toolbar layout="row" class="md-toolbar md-primary inner-toolbar">
-      <!--TODO: Fix layout issues here; use md best practices-->
       <div class="md-toolbar-tools">
         <h2>Choose Hardiness Zone </h2>
         <md-button class="md-icon-button" aria-label="What's a hardiness zone?">
@@ -16,10 +17,10 @@
       <div layout="row" layout-wrap flex>
         <div flex-xs flex="100">
           <md-checkbox aria-label="Select All"
-                       ng-checked="$ctrl.isChecked()"
+                       ng-checked="$ctrl.isChecked($ctrl.selected)"
                        md-indeterminate="$ctrl.isIndeterminate()"
                        ng-click="$ctrl.toggleAll()">
-            <span ng-if="$ctrl.isChecked()">Un-</span>Select All
+            <span ng-if="$ctrl.isChecked($ctrl.selected)">Un-</span>Select All
           </md-checkbox>
         </div>
         <div class="" flex="20" ng-repeat="zone in $ctrl.zones">
@@ -28,9 +29,10 @@
           </md-checkbox>
         </div>
       </div>
-      <md-button ng-disabled="$ctrl.noneSelected()" ng-click="console.log()" ng-href="#!/pickPlants" class="md-raised md-accent">Pick Plants
+      <md-button ng-disabled="$ctrl.noneSelected($ctrl.selected)" ng-click="console.log()" ng-href="#!/pickPlants" class="md-raised md-accent">Pick Plants
       </md-button>
     </fieldset>
     </h3>
   </section>
+-->
 </div>
