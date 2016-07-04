@@ -5,6 +5,6 @@ export default {
   config : {
     bindings: {zones:'<'},
     templateUrl      : 'views/PickPlants/PickPlants.html',
-    controller       : [ '$log', '$mdDialog', PickPlantsController ]
+    controller       : [ '$http','$log', '$mdDialog', PickPlantsController ]
   }
 };

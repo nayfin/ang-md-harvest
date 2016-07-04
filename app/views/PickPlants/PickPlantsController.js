@@ -6,27 +6,45 @@ class PickPlantsController  {
    * @constructor
    * @param {!angular.Scope} this
    */
-  constructor($log, $mdDialog, zonesSelected) {
+  constructor($http,$log, $mdDialog, zonesSelected) {
     this.$log = $log;
     this.$mdDialog = $mdDialog;
-    this.zones = [];
-    this.selected = [];
-    //TODO: replace with service call to plants.JSON
-    this.plants = [{
-        name: `tomato`,
-        sun: `Full`,
-        soil: `Loamy`,
-        daycount: 80,
-        compatibleZones: {1: false, 2: false, 3: false, 4: false, 5: true, 6: true, 7: true, 8: true, 9: true, 10: false}
-      },
-      {
-        name: `carrot`,
-        sun: `Light Shade`,
-        soil: `Sandy`,
-        daycount: `75`,
-        compatibleZones: {1: false, 2: false, 3: false, 4: false, 5: true, 6: true, 7: true, 8: false, 9: false, 10: false}
+    this.zones = []; //not neccesarry, kept for legibility
+    this.plantsSelected = [];
+    //TODO: first pull from contructor, then transfer to filter file
+    this.zoneFilter = (plant)=>{
+      let compatibleZones = plant.compatibleZones,
+          idx;
+      if (this.hasOwnProperty('zones')) {
+        for (var zone of this.zones) {
+          idx = compatibleZones.indexOf(zone);
+          if(idx > -1){
+            return true;
+          }
+        }
       }
-    ];
+    };
+    //TODO: replace with service call to plants.JSON
+    $http.get('./views/PickPlants/plantData.json').then((response)=>{
+        this.plants = response.data;
+    });
+  };
+  /*
+  zoneFilter(plant){
+    let compatibleZones = plant.compatibleZones,
+        idx;
+    if (this.hasOwnProperty('zones')) {
+      for (var zone of this.zones) {
+        idx = compatibleZones.indexOf(zone);
+        if(idx > -1){
+          return true;
+        }
+      }
+    }
+  }
+  */
+  thisChecker(){
+    console.log(this);
   }
 }
 

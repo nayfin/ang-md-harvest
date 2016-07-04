@@ -1,6 +1,5 @@
-<div class="md-padding" layout="column">
   <div layout="row">
-    <div flex-gt-xs="60" class="">
+    <div flex-gt-xs="60" class="" layout-padding>
       <h1>
       Welcome to A Big Harvest
       </h1>
@@ -10,38 +9,38 @@
       Starting a garden can seem overwhelming. We'll help you learn the essentials, so you can be prepared. Next you'll pick plants that grow well in your region and build a mockup of how you'd like your garden to look. Finally, you can use some of our recipes to turn your fresh fruits and vegetables into a delicious meal!
       </p>
     </div>
-    <div flex-gt-xs="40" hide-xs layout-margin>
+    <div flex-gt-xs="40" hide-xs >
       <img layout-align="center center" ng-src="{{$ctrl.gardenImgUrl}}" alt="Picture of a garden" />
     </div>
   </div>
+  <div layout-xs="column" layout="row" layout-wrap>
+    <div class="flex flex-sm-50 flex-gt-sm-33" ng-repeat="location in $ctrl.nav">
+      <md-card >
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{location.headline}}</span>
+            <span class="md-subhead">{{location.subhead}}</span>
+          </md-card-title-text>
+          <md-card-title-media class="">
+            <div class="md-media-lg card-media">
+              <img ng-src="{{location.imgUrl}}" alt="{{location.alt}}" />
+              <!-- TODO: md-icon is ready to go below, just need to resolve sizing issue-->
+              <!--  <md-icon md-svg-icon="shovel"></md-icon> -->
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-content layout-align="start start">
+          <p>
+            {{location.content}}
+          </p>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-href="{{location.url}}" ng-disabled="{{location.disabled}}" class="md-raised md-accent">Let's Go!
+            </md-button>
+          </md-card-actions>
+        </md-card-content>
 
+      </md-card>
+    </div>
 
-  <div layout="column" layout-gt-xs="row">
-    <md-card flex="50" flex-gt-sm="33" ng-repeat="location in $ctrl.nav">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">{{location.headline}}</span>
-          <span class="md-subhead">{{location.subhead}}</span>
-        </md-card-title-text>
-        <md-card-title-media class="md-padding">
-          <div class="md-media-lg card-media">
-            <img ng-src="{{location.imgUrl}}" alt="{{location.alt}}" />
-            <!-- TODO: md-icon is ready to go below, just need to resolve sizing issue-->
-            <!--  <md-icon md-svg-icon="shovel"></md-icon> -->
-          </div>
-        </md-card-title-media>
-      </md-card-title>
-      <md-card-content layout-align="start start">
-        <p>
-          {{location.content}}
-        </p>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-href="{{location.url}}" ng-disabled="{{location.disabled}}" class="md-raised md-accent">Let's Go!
-          </md-button>
-        </md-card-actions>
-      </md-card-content>
-
-    </md-card>
 
   </div>
-</div>
