@@ -1,21 +1,33 @@
-//TODO: Only import required parts of controller
-// import HardinessZonesController from '../HardinessZones/HardinessZonesController'
+/*
+  PickPlantsController:
+
+  logic for pick plants page
+  TODO:
+    -Clean up
+    -Add UserList bottomsheet and plantToUser()
+    -Doll up plant cards
+*/
 
 class PickPlantsController  {
   /**
    * @constructor
    * @param {!angular.Scope} this
+
+    this.zones passed down from root.zonesSelected through componenent html
    */
   constructor($http,$log, $mdDialog, zonesSelected) {
+
     this.$log = $log;
     this.$mdDialog = $mdDialog;
-    this.zones = []; //not neccesarry, kept for legibility
-    this.plantsSelected = [];
-    //TODO: first pull from contructor, then transfer to filter file
+    this.plantsSelected = [];//empty array to which to push selected plants
+    this.plants = []; //empty array to push all plants to, gotten below via $http TODO: use service
+    //Filters plants by their compatability with selected hardiness zones
+    //TODO: I woud transfer this to a filter file, but it will be discarded after switching to database, which will filter results before returning
     this.zoneFilter = (plant)=>{
       let compatibleZones = plant.compatibleZones,
-          idx;
+          idx; //index of selected zone in plant's array, -1 if not in array
       if (this.hasOwnProperty('zones')) {
+        //checks each zone selected against each plants index of compatibleZones, returns true if found
         for (var zone of this.zones) {
           idx = compatibleZones.indexOf(zone);
           if(idx > -1){
@@ -24,27 +36,19 @@ class PickPlantsController  {
         }
       }
     };
-    //TODO: replace with service call to plants.JSON
+    //Gets all plants from JSON file
+    //TODO: Service, will probably have results filtered by server at some point before dataset grows too large
     $http.get('./views/PickPlants/plantData.json').then((response)=>{
         this.plants = response.data;
     });
   };
+
   /*
-  zoneFilter(plant){
-    let compatibleZones = plant.compatibleZones,
-        idx;
-    if (this.hasOwnProperty('zones')) {
-      for (var zone of this.zones) {
-        idx = compatibleZones.indexOf(zone);
-        if(idx > -1){
-          return true;
-        }
-      }
-    }
-  }
   */
-  thisChecker(){
-    console.log(this);
+  plantToUser(plant, userList){
+    console.log(plant.name);
+    userList.push(plant);
+    console.log(userList);
   }
 }
 

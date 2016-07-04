@@ -6,9 +6,11 @@ class HardinessZonesController  {
   constructor($log, $mdDialog) {
     this.$log = $log;
     this.$mdDialog = $mdDialog;
-    this.zones = [1,2,3,4,5,6,7,8,9,10];
+    this.zones = [1,2,3,4,5,6,7,8,9,10]; // Hardiness zones of the United States and Canada
+    //TODO: The World!
   }
-  //dialog controller; TODO: move to a service, enhance using custom dialog
+  //dialog controller;
+  //TODO:  enhance using custom dialog
   hardinessInfo() {
     let $mdDialog = this.$mdDialog;
     $mdDialog.show(
@@ -39,17 +41,19 @@ class HardinessZonesController  {
     return list.indexOf(item) > -1
   }
   //checks to see if some but not all boxes are checked, return boolean
-
   noneSelected(){
     return(this.selected.length < 1);
   }
+  //are some but not all of zones selected?
   isIndeterminate() {
     return (this.selected.length !== 0 &&
         this.selected.length !== this.zones.length);
   }
+  // are all zones selected?
   isChecked() {
     return this.selected.length === this.zones.length;
   }
+  // You know what it does
   toggleAll() {
     if (this.selected.length === this.zones.length) {
       this.selected = [];
