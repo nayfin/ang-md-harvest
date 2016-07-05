@@ -4,7 +4,7 @@ export default {
   name : 'header',
   config : {
     bindings         : {  subtitle: '<' },
-    templateUrl      : 'src/header/Header.html',
+    templateUrl      : './sharedComponents/header/Header.html',
     controller       : [ '$log', HeaderController ]
   }
 };

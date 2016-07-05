@@ -37,7 +37,7 @@ class PickPlantsController  {
       }
     };
     //Gets all plants from JSON file
-    //TODO: Service, will probably have results filtered by server at some point before dataset grows too large
+    //TODO: Switch to ngResource, having problems with dependency injection
     $http.get('./views/PickPlants/plantData.json').then((response)=>{
         this.plants = response.data;
     });
