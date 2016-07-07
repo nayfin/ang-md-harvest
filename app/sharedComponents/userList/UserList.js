@@ -1,10 +1,10 @@
-import HeaderController from './HeaderController'
+import UserListController from './UserListController'
 
 export default {
-  name : 'header',
+  name : 'userlist',
   config : {
-    bindings         : {  subtitle: '<' },
-    templateUrl      : './sharedComponents/header/Header.html',
-    controller       : [ '$log', HeaderController ]
+    bindings         : {plants: '<'  },// 
+    templateUrl      : './sharedComponents/userlist/UserList.html',
+    controller       : [ '$log', UserListController ]
   }
 };

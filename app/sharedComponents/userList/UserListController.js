@@ -1,13 +1,13 @@
-class HeaderController  {
+class UserListController  {
   /**
    * @constructor
    * @param {!angular.Scope} $scope
    */
   constructor($log) {
     this.$log = $log;
-
+  //  this.plants = [];
   }
 
 }
 
-export default HeaderController;
+export default UserListController;

@@ -1,8 +1,22 @@
-function RootController($mdSidenav, $mdBottomSheet, $log ) {
-  let self = this;
+function RootController(plantService, $mdSidenav, $log ) {
 
-  self.zonesSelected = [];
-  self.page = "Home";
+
+  this.zonesSelected = [];
+  this.allPlants = [];
+  this.userPlants = [];
+
+  this.devShown = true;
+  this.page = "Home";
+  this.showUserList = true;
+
+  // TODO: Getting TypeError: plantService.loadAllPlants is not a function
+  /*
+  plantService
+    .loadAllPlants()
+    .then((plants)=>{
+      this.allPlants = [].concat(plants);
+    });
+  */
 
 }
-export default ['$mdSidenav', '$mdBottomSheet', '$log', RootController];
+export default ['$mdSidenav', '$log', RootController];

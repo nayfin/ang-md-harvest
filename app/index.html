@@ -12,12 +12,29 @@
   <link rel="stylesheet" href="./assets/app.css"/>
 </head>
 
-<body layout="column" ng-controller="RootController as root" ng-cloak>
-  <header subtitle="subtitle"></header>
-  <md-content flex layout='column'>
-    <div  ng-view class="">
-    </div>
-  </md-content>
+<body flex="100" layout="column" ng-controller="RootController as root" ng-cloak>
+
+  <header viewshown="root.devShown" subtitle="root.page" lockul="root.showUserList"></header>
+
+  <!--Development View: turn off ng-if to deactivate-->
+
+  <fieldset layout="row" ng-if="root.devShown">
+    <legend class="">Dev View</legend>
+    <h4>root.page :  {{root.page}} </h4>
+    <h4>root.devShown :  {{root.devShown}} </h4>
+    <h4>root.userPlants : <span ng-repeat="plant in root.userPlants track by $index"> {{plant.name}}, </span> </h4>
+  </fieldset>
+  <div class="" flex layout="row">
+    <md-content flex>
+      <div  ng-view class="">
+      </div>
+    </md-content>
+    <md-sidenav class="md-sidenav-right" md-is-locked-open="root.showUserList" md-component-id="right"
+                ng-click="" class="md-whiteframe-4dp">
+      <userlist plants=root.userPlants></userlist>
+    </md-sidenav>
+  </div>
+
 
 <script src="./jspm_packages/system.js" type="text/javascript"></script>
 <script src="config.js" type="text/javascript"></script>

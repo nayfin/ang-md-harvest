@@ -1,14 +1,11 @@
 <div layout="column" >
     <h1>Pick Your Plants!</h1>
-    <fieldset>
+    <!-- Dev view of values -->
+    <fieldset ng-if="false">
       <legend class="">Dev View</legend>
       <h2>From Hardinesszones: {{$ctrl.zones}}</h2>
-      <h3>UserList: <span ng-repeat="userplant in $ctrl.plantsSelected track by $index">{{userplant.name}}, </span> </h3>
+      <h3>UserList: <span ng-repeat="userplant in $ctrl.selected track by $index">{{userplant.name}}, </span> </h3>
     </fieldset>
-
-
-
-
 </div>
 <div layout-xs="column" layout="row" layout-wrap>
   <div class="flex flex-sm-50 flex-gt-sm-33" ng-repeat="plant in $ctrl.plants | filter: $ctrl.zoneFilter">
@@ -30,7 +27,7 @@
           Daycount: {{plant.daycount}}<br>
         </p>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-click="$ctrl.plantToUser(plant, $ctrl.plantsSelected)" class="md-raised md-accent">Add {{plant.name}}
+          <md-button ng-click="$ctrl.plantToUser(plant)" class="md-raised md-accent">Add {{plant.name}}
           </md-button>
         </md-card-actions>
       </md-card-content>

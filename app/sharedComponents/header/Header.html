@@ -1,3 +1,11 @@
-<md-toolbar layout="row" md-scroll-shrink ng-if="true" class="md-toolbar-tools" md-whiteframe="4">
-  A Big Harvest - {{subtitle = "Home"}}
+<md-toolbar class="md-toolbar-tools" md-whiteframe="4">
+  <h2>A Big Harvest : {{$ctrl.subtitle}}</h2>
+  <span flex></span>
+  <span></span>
+  <md-button class="md-raised" ng-click="$ctrl.toggleUserList()" aria-label="Show User List">
+    Plant List
+  </md-button>
+  <md-button class="md-raised" ng-click="$ctrl.toggleDevView()" aria-label="Show Developer View">
+    Show Dev
+  </md-button>
 </md-toolbar>

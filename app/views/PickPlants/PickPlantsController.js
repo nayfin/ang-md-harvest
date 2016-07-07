@@ -19,8 +19,11 @@ class PickPlantsController  {
 
     this.$log = $log;
     this.$mdDialog = $mdDialog;
-    this.plantsSelected = [];//empty array to which to push selected plants
-    this.plants = []; //empty array to push all plants to, gotten below via $http TODO: use service
+    this.selected = [];//empty array to which to push selected plants
+    this.plants = []; //empty array to push all plants to, gotten below via $http TODO: change to $resource once dependancy injection problem resolved
+    this.plantToUser = (plant)=>{
+      this.selected.push(plant);
+    };
     //Filters plants by their compatability with selected hardiness zones
     //TODO: I woud transfer this to a filter file, but it will be discarded after switching to database, which will filter results before returning
     this.zoneFilter = (plant)=>{
@@ -37,19 +40,12 @@ class PickPlantsController  {
       }
     };
     //Gets all plants from JSON file
-    //TODO: Switch to ngResource, having problems with dependency injection
+    //TODO: Switch to $resource, having problems with dependency injection
     $http.get('./views/PickPlants/plantData.json').then((response)=>{
         this.plants = response.data;
     });
   };
-
-  /*
-  */
-  plantToUser(plant, userList){
-    console.log(plant.name);
-    userList.push(plant);
-    console.log(userList);
-  }
+  
 }
 
 export default PickPlantsController;
