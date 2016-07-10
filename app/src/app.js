@@ -7,18 +7,17 @@ import 'angular-animate';
 import 'angular-aria';
 import 'angular-material';
 
-import Root from 'src/root/Root';
-import Header from 'sharedComponents/header/Header';
-
+import Root from 'home/Root';
   //Home
-  import Home from 'views/Home/Home';
+  import Home from 'home/Home/Home';
+  import Header from 'sharedComponents/header/Header';
 
   //Sections:
-
+  //import Garden from 'home/Garden/Garden';
     //Garden componenents
-    import HardinessZones from 'views/HardinessZones/HardinessZones';
-    import PickPlants from 'views/PickPlants/PickPlants';
-    import UserList from 'sharedComponents/userList/UserList';
+    import HardinessZones from 'home/Garden/HardinessZones/HardinessZones';
+    import PickPlants from 'home/Garden/PickPlants/PickPlants';
+    import UserList from 'home/Garden/userList/UserList';
 
     //Recipes componenents
 
@@ -27,10 +26,9 @@ import Header from 'sharedComponents/header/Header';
 export default angular.module( 'big-harvest', [ 'ngResource', 'ngMaterial' , 'ngRoute',  Root.name] )
   //a bunch of componenents
   //TODO: Organize file locations and logic
-  .component( Header.name, Header.config)
-
   .component( Home.name, Home.config)
-
+  .component( Header.name, Header.config)
+  //Garden Components
   .component( HardinessZones.name, HardinessZones.config)
   .component( PickPlants.name, PickPlants.config)
   .component( UserList.name, UserList.config)
@@ -39,16 +37,18 @@ export default angular.module( 'big-harvest', [ 'ngResource', 'ngMaterial' , 'ng
     function config( $resourceProvider, $locationProvider, $routeProvider, $mdIconProvider, $mdThemingProvider) {
       $locationProvider.hashPrefix('!');
       //tells ng-view what to show
-
       $routeProvider
         .when('/', {
-          template: `<home></home>`
+          template: `<home select-location="root.updateLocation(section,subsection)"></home>`
         })
         .when('/hardiness',{
-          template: `<hardiness selected='root.zonesSelected'></hardiness>`
+          template: `<hardiness selected='root.zonesSelected' select-location="root.updateLocation(section,subsection)"  ></hardiness>`
         })
         .when('/pickPlants',{
-          template: `<pickplants zones='root.zonesSelected' selected='root.userPlants' plants='root.allPlants'></pickplants>`,
+          template: `<pickplants zones='root.zonesSelected'
+                                 selected='root.userPlants'
+                                 plants='root.allPlants'
+                                 select-location='root.updateLocation(section,subsection)'></pickplants>`,
         })
         .otherwise('/');
     // Sets up icons

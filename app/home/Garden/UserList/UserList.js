@@ -3,8 +3,8 @@ import UserListController from './UserListController'
 export default {
   name : 'userlist',
   config : {
-    bindings         : {plants: '<'  },// 
-    templateUrl      : './sharedComponents/userlist/UserList.html',
+    bindings         : {plants: '<'},//
+    templateUrl      : 'home/Garden/Userlist/UserList.html',
     controller       : [ '$log', UserListController ]
   }
 };

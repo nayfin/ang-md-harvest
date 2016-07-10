@@ -3,8 +3,8 @@ import HomeController from './HomeController'
 export default {
   name : 'home',
   config : {
-    bindings         : {},
-    templateUrl      : 'views/home/Home.html',
+    bindings         : {headerLocation: '&selectLocation'},
+    templateUrl      : 'home/Home/Home.html',
     controller       : [ '$log', HomeController ]
   }
 };

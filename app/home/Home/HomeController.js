@@ -7,7 +7,7 @@ class HomeController  {
     this.$log = $log;
     this.gardenImgUrl = "http://thirstyrootgardens.org/wp-content/uploads/2014/06/IMAG2209.jpg";
     this.nav = [
-      { "name": "basics",
+      { "section": "Basics",
         "headline": "Getting Started",
         "subhead": "Learn the basics",
         "imgUrl": "./assets/svg/shovel.svg",
@@ -16,7 +16,8 @@ class HomeController  {
         "content": `There's a lot to know before starting a garden. We'll break it down by category, so that you have what you need and know what you're doing.`,
         "disabled": true
       },
-      { "name": "start",
+      { "section": "Garden",
+        "subSection":"Hardiness Zones",
         "headline": "Plot your garden!",
         "subhead": "Preparation is half the battle",
         "imgUrl": "./assets/svg/shovel.svg",
@@ -25,7 +26,7 @@ class HomeController  {
         "content": `Let's organize and plot your garden. We'll plant good companions close to each other and ensure plants are spaced properly.`,
         "disabled": false
       },
-      { "name": "recipes",
+      { "section": "Recipes",
         "headline": "Recipes",
         "subhead": "Make great dishes",
         "imgUrl": "./assets/svg/shovel.svg",
@@ -34,7 +35,7 @@ class HomeController  {
         "content": `After you've grown all this fresh food, let's cook some delicious meals. There's nothing like eating a homegrown meal!`,
         "disabled": true
       }
-    ]
+    ];
   }
 }
 

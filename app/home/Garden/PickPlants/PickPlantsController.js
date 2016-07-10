@@ -20,7 +20,6 @@ class PickPlantsController  {
     this.$log = $log;
     this.$mdDialog = $mdDialog;
     this.selected = [];//empty array to which to push selected plants
-    this.plants = []; //empty array to push all plants to, gotten below via $http TODO: change to $resource once dependancy injection problem resolved
     this.plantToUser = (plant)=>{
       this.selected.push(plant);
     };
@@ -40,12 +39,9 @@ class PickPlantsController  {
       }
     };
     //Gets all plants from JSON file
-    //TODO: Switch to $resource, having problems with dependency injection
-    $http.get('./views/PickPlants/plantData.json').then((response)=>{
-        this.plants = response.data;
-    });
+
   };
-  
+
 }
 
 export default PickPlantsController;

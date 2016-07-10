@@ -1,10 +1,6 @@
 <md-toolbar class="md-toolbar-tools" md-whiteframe="4">
-  <h2>A Big Harvest : {{$ctrl.subtitle}}</h2>
+  <h2>A Big Harvest : {{$ctrl.section}} <span ng-if="$ctrl.subsection"> > {{$ctrl.subsection}} </span></h2>
   <span flex></span>
-  <span></span>
-  <md-button class="md-raised" ng-click="$ctrl.toggleUserList()" aria-label="Show User List">
-    Plant List
-  </md-button>
   <md-button class="md-raised" ng-click="$ctrl.toggleDevView()" aria-label="Show Developer View">
     Show Dev
   </md-button>
