@@ -21,8 +21,9 @@
       <legend class="">Dev View</legend>
       <h4>root.curSection :  {{root.curSection}} </h4>
       <h4>root.curSubSection :  {{root.curSubSection}} </h4>
-      <h4>root.showUserList :  {{root.showUserList}} </h4>
-      <h4>root.userPlants : <span ng-repeat="plant in root.userPlants track by $index"> {{plant.name}}, </span> </h4>
+      <h4>root.path :  {{root.path}} </h4>
+      <h4>root.pieces :  {{root.pieces}} </h4>
+      <h4>root.sections : <span ng-repeat="section in root.sections track by $index"> {{section.name}}, </span> </h4>
     </fieldset>
     <md-content flex layout="row">
       <div ng-view class="" >

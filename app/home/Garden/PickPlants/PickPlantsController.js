@@ -21,7 +21,7 @@ class PickPlantsController  {
     this.$mdDialog = $mdDialog;
     this.selected = [];//empty array to which to push selected plants
     this.plantToUser = (plant)=>{
-      this.selected.push(plant);
+      this.selected.unshift(plant);
     };
     //Filters plants by their compatability with selected hardiness zones
     //TODO: I woud transfer this to a filter file, but it will be discarded after switching to database, which will filter results before returning

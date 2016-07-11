@@ -15,16 +15,16 @@
     </div>
   </div>
   <div layout-xs="column" layout="row" layout-wrap>
-    <div class="flex flex-sm-50 flex-gt-sm-33" ng-repeat="location in $ctrl.nav">
+    <div class="flex flex-sm-50 flex-gt-sm-33" ng-repeat="section in $ctrl.sections">
       <md-card >
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">{{location.headline}}</span>
-            <span class="md-subhead">{{location.subhead}}</span>
+            <span class="md-headline">{{section.headline}}</span>
+            <span class="md-subhead">{{section.subhead}}</span>
           </md-card-title-text>
           <md-card-title-media class="">
             <div class="md-media-lg card-media">
-              <img ng-src="{{location.imgUrl}}" alt="{{location.alt}}" />
+              <img ng-src="{{section.imgUrl}}" alt="{{section.alt}}" />
               <!-- TODO: md-icon is ready to go below, just need to resolve sizing issue-->
               <!--  <md-icon md-svg-icon="shovel"></md-icon> -->
             </div>
@@ -32,10 +32,10 @@
         </md-card-title>
         <md-card-content layout-align="start start">
           <p>
-            {{location.content}}
+            {{section.content}}
           </p>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-href="{{location.url}}" ng-click='$ctrl.headerLocation({section:location.section,subsection:location.subSection})' ng-disabled="{{location.disabled}}" class="md-raised md-accent">Let's Go!
+            <md-button ng-href="{{section.url}}" ng-click="$ctrl.updateSection()" ng-disabled="{{section.disabled}}" class="md-raised md-accent">Let's Go!
             </md-button>
           </md-card-actions>
         </md-card-content>

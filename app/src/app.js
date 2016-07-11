@@ -32,19 +32,25 @@ export default angular.module( 'big-harvest', [ 'ngResource', 'ngMaterial' , 'ng
   .component( HardinessZones.name, HardinessZones.config)
   .component( PickPlants.name, PickPlants.config)
   .component( UserList.name, UserList.config)
-  //TODO: Fix Dependency Injection of $resource
   .config([ '$resourceProvider','$locationProvider', '$routeProvider', '$mdIconProvider', '$mdThemingProvider',
     function config( $resourceProvider, $locationProvider, $routeProvider, $mdIconProvider, $mdThemingProvider) {
       $locationProvider.hashPrefix('!');
       //tells ng-view what to show
       $routeProvider
-        .when('/', {
-          template: `<home select-location="root.updateLocation(section,subsection)"></home>`
+      //TODO: Organize routing by sections and subsections, similaar to comment below
+      /*
+      .when('/Garden/:subsection',{
+        template: <garden></garden> //not sure how to insert subsection into garden component
+    })
+      */
+        .when('/Home', {
+          template: `<home sections='root.sections' update-section='root.updateSection()'></home>`
         })
-        .when('/hardiness',{
-          template: `<hardiness selected='root.zonesSelected' select-location="root.updateLocation(section,subsection)"  ></hardiness>`
+        .when('/', {redirectTo: '/Home'})
+        .when('/Garden/hardiness',{
+          template: `<hardiness selected='root.zonesSelected' select-location="root.updateLocation(section,subsection)"></hardiness>`
         })
-        .when('/pickPlants',{
+        .when('/Garden/pickPlants',{
           template: `<pickplants zones='root.zonesSelected'
                                  selected='root.userPlants'
                                  plants='root.allPlants'
